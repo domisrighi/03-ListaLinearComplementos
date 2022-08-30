@@ -27,44 +27,44 @@ int main()
 void menu()
 {
 	int op = 0;
-	while (op != 7) {
-		system("cls"); // somente no windows
-		cout << "Menu Lista Linear";
-		cout << endl << endl;
-		cout << "1 - Inicializar Lista \n";
-		cout << "2 - Exibir quantidade de elementos \n";
-		cout << "3 - Exibir elementos \n";
-		cout << "4 - Buscar elemento \n";
-		cout << "5 - Inserir elemento \n";
-		cout << "6 - Excluir elemento \n";
-		cout << "7 - Sair \n\n";
+while (op != 7) {
+	system("cls"); // somente no windows
+	cout << "Menu Lista Linear";
+	cout << endl << endl;
+	cout << "1 - Inicializar Lista \n";
+	cout << "2 - Exibir quantidade de elementos \n";
+	cout << "3 - Exibir elementos \n";
+	cout << "4 - Buscar elemento \n";
+	cout << "5 - Inserir elemento \n";
+	cout << "6 - Excluir elemento \n";
+	cout << "7 - Sair \n\n";
 
-		cout << "Opcao: ";
-		cin >> op;
+	cout << "Opcao: ";
+	cin >> op;
 
-		switch (op)
-		{
-		case 1: inicializar();
-			break;
-		case 2: exibirQuantidadeElementos();
-			break;
-		case 3: exibirElementos();
-			break;
-		case 4: buscarElemento();
-			break;
-		case 5: inserirElemento();
-			break;
-		case 6: excluirElemento();
-			break;
+	switch (op)
+	{
+	case 1: inicializar();
+		break;
+	case 2: exibirQuantidadeElementos();
+		break;
+	case 3: exibirElementos();
+		break;
+	case 4: buscarElemento();
+		break;
+	case 5: inserirElemento();
+		break;
+	case 6: excluirElemento();
+		break;
 
-		case 7:
-			return;
-		default:
-			break;
-		}
-
-		system("pause"); // somente no windows
+	case 7:
+		return;
+	default:
+		break;
 	}
+
+	system("pause"); // somente no windows
+}
 }
 
 void inicializar()
@@ -122,8 +122,24 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	int valor;
+	cout << "Digite o Elemento que deseja remover: ";
+	cin >> valor;
+	int pos = posicaoElemento(valor);
+	if (pos != -1)
+	{
+		lista[pos] = 0;
 
+		for (int n = 0; n < nElementos; n++)
+		{
+			lista[pos] = lista[pos + 1];
+			nElementos--;
+		}
+	}
 
+	else {
+		cout << "Elemento não Encontrado!" << endl;
+	}
 }
 
 void buscarElemento()
